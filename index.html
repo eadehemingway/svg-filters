@@ -20,13 +20,45 @@
         primitiveUnits="userSpaceOnUse"
       >
         <feTurbulence
-          baseFrequency=".05,.004"
-          width="200%"
-          height="200%"
-          top="-50%"
+          baseFrequency=".02,.004"
           type="fractalNoise"
           numOctaves="4"
-          seed="0"
+          result="FRACTAL-TEXTURE_10"
+        />
+
+        <feComposite in="SourceGraphic" operator="in" />
+      </filter>
+      <filter
+        id="rect2"
+        x="-5%"
+        y="-5%"
+        width="140%"
+        height="140%"
+        filterUnits="objectBoundingBox"
+        primitiveUnits="userSpaceOnUse"
+      >
+        <feTurbulence
+          baseFrequency=".005,.004"
+          type="fractalNoise"
+          numOctaves="4"
+          result="FRACTAL-TEXTURE_10"
+        />
+
+        <feComposite in="SourceGraphic" operator="in" />
+      </filter>
+      <filter
+        id="rect3"
+        x="-5%"
+        y="-5%"
+        width="140%"
+        height="140%"
+        filterUnits="objectBoundingBox"
+        primitiveUnits="userSpaceOnUse"
+      >
+        <feTurbulence
+          baseFrequency=".005,.004"
+          type="fractalNoise"
+          numOctaves="4"
           result="FRACTAL-TEXTURE_10"
         />
 
@@ -34,7 +66,23 @@
       </filter>
 
       <rect
-        class="rect"
+        filter="url(#rect)"
+        x="200px"
+        y="200px"
+        width="100px"
+        height="200px"
+        fill="coral"
+      ></rect>
+      <rect
+        filter="url(#rect2)"
+        x="400px"
+        y="200px"
+        width="100px"
+        height="200px"
+        fill="coral"
+      ></rect>
+      <rect
+        filter="url(#rect3)"
         x="600px"
         y="200px"
         width="100px"
