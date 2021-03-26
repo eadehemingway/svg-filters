@@ -1,4 +1,5 @@
-HTML, BODY {
+HTML,
+BODY {
   height: 100%;
 }
 
@@ -7,24 +8,18 @@ BODY {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background:linen;
+  background: linen;
   font: 28vw/1 Arial Black, sans-serif;
   text-align: center;
   color: hotpink;
 }
 
-.text {
-/* white-space: nowrap; */
-  filter: url(#eade);
+.rect {
+  /* white-space: nowrap; */
+  filter: url(#rect);
   outline: none;
-  
+
   /* selection {
     background: rgba(0,0,0,.15);
   } */
-}
-
-svg {
-  position: absolute;
-  width: 0;
-  height: 0;
 }
