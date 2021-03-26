@@ -59,35 +59,71 @@
           baseFrequency=".005,.004"
           type="fractalNoise"
           numOctaves="4"
-          result="FRACTAL-TEXTURE_10"
+          result="turbulence"
         />
 
-        <feComposite in="SourceGraphic" operator="in" />
+        <feGaussianBlur
+          stdDeviation="0.4"
+          in="SourceGraphic"
+          edgeMode="none"
+          result="blur"
+        />
+
+        <feComposite in="blur" in2="turbulence" operator="in" />
+      </filter>
+      <filter
+        id="rect4"
+        x="-5%"
+        y="-5%"
+        width="140%"
+        height="140%"
+        filterUnits="objectBoundingBox"
+        primitiveUnits="userSpaceOnUse"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.035"
+          numOctaves="10"
+          result="turbulence"
+        />
+
+        <feGaussianBlur
+          stdDeviation="4"
+          in="SourceGraphic"
+          edgeMode="none"
+          result="blur"
+        />
+
+        <feComposite in="blur" in2="turbulence" operator="in" />
       </filter>
 
       <rect
         filter="url(#rect)"
-        x="200px"
+        x="150px"
         y="200px"
         width="100px"
         height="200px"
-        fill="coral"
       ></rect>
       <rect
         filter="url(#rect2)"
-        x="400px"
+        x="300px"
         y="200px"
         width="100px"
         height="200px"
-        fill="coral"
       ></rect>
       <rect
         filter="url(#rect3)"
+        x="450px"
+        y="200px"
+        width="100px"
+        height="200px"
+      ></rect>
+      <rect
+        filter="url(#rect4)"
         x="600px"
         y="200px"
         width="100px"
         height="200px"
-        fill="coral"
       ></rect>
     </svg>
   </body>
