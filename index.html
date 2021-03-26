@@ -34,23 +34,21 @@
     in="composite" result="colormatrix"/>
 
     <feFlood flood-color="coral" flood-opacity="1" result="flood"/>
+
+
+<!-- COMPOSITING IS THE COMBINING OF A GRAPHIC ELEMENT WITH ITS BACKDROP -->
     <feComposite in="flood" in2="colormatrix" operator="in" result="composite2"/>
-
-
 
     <feComposite in="specularLighting" in2="colormatrix" operator="in" result="composite1"/>
 
-
-
-
-
-
+<!-- MERGING THE COMPOSITES -->
 
       <feMerge result="merge1">
         <feMergeNode in="composite2"/>
         <feMergeNode in="composite1"/>
       </feMerge>
     </filter>
+
   </svg>
 
   <div class="text" contenteditable spellcheck="false">Brain</div>
