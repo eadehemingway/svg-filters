@@ -14,8 +14,6 @@
         id="rect"
         x="-5%"
         y="-5%"
-        width="140%"
-        height="140%"
         filterUnits="objectBoundingBox"
         primitiveUnits="userSpaceOnUse"
       >
@@ -23,17 +21,16 @@
           baseFrequency=".02,.004"
           type="fractalNoise"
           numOctaves="4"
-          result="FRACTAL-TEXTURE_10"
+          result="turbulence"
         />
+        <feFlood flood-color="coral" flood-opacity="0.5" result="flood" />
 
-        <feComposite in="SourceGraphic" operator="in" />
+        <feComposite in="flood" in2="turbulence" operator="in" />
       </filter>
       <filter
         id="rect2"
         x="-5%"
         y="-5%"
-        width="140%"
-        height="140%"
         filterUnits="objectBoundingBox"
         primitiveUnits="userSpaceOnUse"
       >
@@ -41,17 +38,16 @@
           baseFrequency=".005,.004"
           type="fractalNoise"
           numOctaves="4"
-          result="FRACTAL-TEXTURE_10"
+          result="turbulence"
         />
+        <feFlood flood-color="coral" flood-opacity="0.5" result="flood" />
 
-        <feComposite in="SourceGraphic" operator="in" />
+        <feComposite in="flood" in2="turbulence" operator="in" />
       </filter>
       <filter
         id="rect3"
         x="-5%"
         y="-5%"
-        width="140%"
-        height="140%"
         filterUnits="objectBoundingBox"
         primitiveUnits="userSpaceOnUse"
       >
@@ -68,15 +64,14 @@
           edgeMode="none"
           result="blur"
         />
+        <feFlood flood-color="coral" flood-opacity="0.5" result="flood" />
 
-        <feComposite in="blur" in2="turbulence" operator="in" />
+        <feComposite in="flood" in2="turbulence" operator="in" />
       </filter>
       <filter
         id="rect4"
         x="-5%"
         y="-5%"
-        width="140%"
-        height="140%"
         filterUnits="objectBoundingBox"
         primitiveUnits="userSpaceOnUse"
       >
@@ -94,7 +89,16 @@
           result="blur"
         />
 
-        <feComposite in="blur" in2="turbulence" operator="in" />
+        <feFlood flood-color="coral" flood-opacity="0.5" result="flood" />
+
+        <feComposite
+          in="flood"
+          in2="turbulence"
+          operator="in"
+          result="colo-text"
+        />
+
+        <!-- <feComposite in="blur" in2="colo-text" operator="in" /> -->
       </filter>
 
       <rect
