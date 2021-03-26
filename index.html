@@ -20,70 +20,17 @@
         primitiveUnits="userSpaceOnUse"
       >
         <feTurbulence
+          baseFrequency=".05,.004"
+          width="200%"
+          height="200%"
+          top="-50%"
           type="fractalNoise"
-          baseFrequency="0.035"
-          numOctaves="10"
-          result="turbulence"
+          numOctaves="4"
+          seed="0"
+          result="FRACTAL-TEXTURE_10"
         />
 
-        <feGaussianBlur
-          stdDeviation="2 2"
-          in="SourceGraphic"
-          edgeMode="none"
-          result="blur"
-        />
-        <feComposite
-          in="turbulence"
-          in2="blur"
-          operator="in"
-          result="composite"
-        />
-
-        <feSpecularLighting
-          surfaceScale="40"
-          specularConstant="1"
-          specularExponent="35"
-          kernelUnitLength="10 10"
-          lighting-color="#fff"
-          in="turbulence"
-          result="specularLighting"
-        >
-          <feDistantLight azimuth="68" elevation="240" />
-        </feSpecularLighting>
-
-        <feColorMatrix
-          type="matrix"
-          values="1 0 0 0 0
-    0 1 0 0 0
-    0 0 1 0 0
-    0 0 0 40 -4"
-          in="composite"
-          result="colormatrix"
-        />
-
-        <feFlood flood-color="coral" flood-opacity="0.5" result="flood" />
-
-        <!-- COMPOSITING IS THE COMBINING OF A GRAPHIC ELEMENT WITH ITS BACKDROP -->
-        <feComposite
-          in="flood"
-          in2="colormatrix"
-          operator="in"
-          result="composite2"
-        />
-
-        <feComposite
-          in="specularLighting"
-          in2="colormatrix"
-          operator="in"
-          result="composite1"
-        />
-
-        <!-- MERGING THE COMPOSITES -->
-
-        <feMerge result="merge1">
-          <feMergeNode in="composite2" />
-          <feMergeNode in="composite1" />
-        </feMerge>
+        <feComposite in="SourceGraphic" operator="in" />
       </filter>
 
       <rect
